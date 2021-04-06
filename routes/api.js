@@ -3,13 +3,13 @@ const router = require("express").Router();
 
 // Prepopulate the database
 // Uncomment to populate
-// db.Workout.find({}).then(function (res) {
-//     console.log("Checking the database to see if there is information");
-//     if (res.length === 0) {
-//         console.log("Database has no information");
-//         require("../seeders/seed.js")
-//     }
-// });
+db.Workout.find({}).then(function (res) {
+    console.log("Checking the database to see if there is information");
+    if (res.length === 0) {
+        console.log("Database has no information");
+        require("../seeders/seed.js")
+    }
+});
 
 
 //get workouts routes

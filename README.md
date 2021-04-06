@@ -1,6 +1,10 @@
 # README
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+## Deployed-Application
+
+[Link to Heroku](https://whispering-dusk-26640.herokuapp.com/?id=606c691b8604460015a80815)
+
 ## Description
 
 This is a fitness tracker that helps you keep track of your fitness goals. It allows you input a workout. It keeps tracks of the workouts for you and informs you just how long you are working out for.

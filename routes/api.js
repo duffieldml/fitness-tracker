@@ -14,21 +14,14 @@ db.Workout.find({}).then(function (res) {
 
 //get workouts routes
 router.get("/api/workouts", (req, res) => {
-    db.Workout.find({}).then(dbWorkout => {
-        console.log(dbWorkout);
-        // dbWorkout.forEach(workout => {
-        //     let total = 0;
-        //     workout.exercises.forEach(e => {
-        //         total += e.duration;
-        //     });
-        //     workout.totalDuration = total;
-        // });
+    db.Workout.find({})
+      .then((dbWorkout) => {
         res.json(dbWorkout);
-    }).catch(err => {
-        res.json(err);
-    });
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
 });
-
 
 //add exercise routes
 router.put("/api/workouts/:id", (req, res) => {
@@ -46,14 +39,25 @@ router.put("/api/workouts/:id", (req, res) => {
        });
 });
 
+
 //create workout routes
+// router.post("/api/workouts", ({ body }, res) => {
+//     console.log("Workout Added!");
+//     db.Workout.create(body).then((dbWorkout) => {
+//         res.json(dbWorkout);
+//     }).catch(err => {
+//         res.json(err);
+//     });
+// });
+
 router.post("/api/workouts", ({ body }, res) => {
-    console.log("Workout Added!");
-    db.Workout.create(body).then((dbWorkout) => {
+    db.Workout.create(body)
+      .then((dbWorkout) => {
         res.json(dbWorkout);
-    }).catch(err => {
-        res.json(err);
-    });
+      })
+      .catch((err) => {
+        res.status(400).json(err);
+      });
 });
 
 // Get workout in ranges

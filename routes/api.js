@@ -30,4 +30,22 @@ module.exports = (app) => {
         });
     });
   });
+
+  // Route to create and grab the ID for a new workout
+  app.put("/api/workouts/:id", (req, res) => {
+    db.Workout.findByIdAndUpdate(
+      req.params.id,
+      { $push: { exercises: req.body } },
+      { new: true, runValidators: true }
+    )
+      .then((dbWorkout) => {
+        res.json(dbWorkout);
+        console.log(dbWorkout);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
+
+  
 }
